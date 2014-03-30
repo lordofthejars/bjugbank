@@ -1,8 +1,9 @@
-package com.lordofthejars.bank.account.web;
+package com.lordofthejars.bank.account;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -13,9 +14,13 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.lordofthejars.bank.account.control.AccountRepository;
+import com.lordofthejars.bank.account.control.JpaAccountRepository;
 import com.lordofthejars.bank.account.control.AccountService;
 import com.lordofthejars.bank.account.entity.Account;
+import com.lordofthejars.bank.customer.control.JpaCustomerRepository;
+import com.lordofthejars.bank.customer.entity.Customer;
+import com.lordofthejars.bank.util.BankEntityManager;
+import com.lordofthejars.bank.util.persistence.PersistenceHandler;
 
 @RunWith(Arquillian.class)
 public class WhenACustomerTransferMoney {
@@ -23,29 +28,32 @@ public class WhenACustomerTransferMoney {
 	@Deployment
 	public static JavaArchive createDeployment() {
 		JavaArchive javaArchive = ShrinkWrap.create(JavaArchive.class)
+		        .addPackage(BankEntityManager.class.getPackage())
+		        .addPackage(PersistenceHandler.class.getPackage())
 				.addClass(Account.class)
+				.addClass(Customer.class)
 				.addClass(AccountService.class)
-				.addClass(AccountRepository.class)
-				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+				.addClass(JpaAccountRepository.class)
+				.addClass(JpaCustomerRepository.class)
+				.addClass(DBPopulator.class)
+				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
+				.addAsManifestResource("META-INF/persistence.xml", "persistence.xml");
 		return javaArchive;
 	}
 
-	@Inject
+	@EJB
 	AccountService accountService;
-	
-	@Inject
-	AccountRepository accountRepository;
+
+	@EJB
+	JpaAccountRepository accountRepository;
 	
 	@Test
 	public void money_should_be_transferred_from_his_account_to_other_account() {
 		
-		accountRepository.createAccount(new Account("my_account", 1000));
-		accountRepository.createAccount(new Account("other_account", 500));
-
-		accountService.transfer("my_account", "other_account", 250);
+		accountService.transfer("AA00", "BB00", 50);
 		
-		Account fromAccount = accountRepository.getForAccountNumber("my_account");
-		Account toAccount = accountRepository.getForAccountNumber("other_account");
+		Account fromAccount = accountRepository.getForAccountNumber("AA00");
+		Account toAccount = accountRepository.getForAccountNumber("BB00");
 		
 		assertThat(fromAccount.getBalance(), is(750));
 		assertThat(toAccount.getBalance(), is(750));

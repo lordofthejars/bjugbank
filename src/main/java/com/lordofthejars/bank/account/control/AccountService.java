@@ -9,7 +9,7 @@ import com.lordofthejars.bank.account.entity.Account;
 public class AccountService {
 
 	@EJB
-	private AccountRepository accountRepository;
+	private JpaAccountRepository accountRepository;
 	
 	public void transfer(String from, String to, int amount) {
 		

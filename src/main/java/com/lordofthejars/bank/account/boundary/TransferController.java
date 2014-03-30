@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.lordofthejars.bank.account.control.AccountRepository;
+import com.lordofthejars.bank.account.control.JpaAccountRepository;
 import com.lordofthejars.bank.account.control.AccountService;
 import com.lordofthejars.bank.customer.entity.Customer;
 
@@ -19,7 +19,7 @@ public class TransferController {
 	private AccountService accountService;
 	
 	@EJB
-	private AccountRepository accountRepository;
+	private JpaAccountRepository jpaAccountRepository;
 	
 	@Inject
 	@Named("currentCustomer")

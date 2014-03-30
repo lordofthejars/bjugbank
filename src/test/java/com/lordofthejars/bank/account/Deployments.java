@@ -1,4 +1,4 @@
-package com.lordofthejars.bank.account.web;
+package com.lordofthejars.bank.account;
 
 import java.io.File;
 
@@ -10,11 +10,11 @@ import org.jboss.shrinkwrap.api.importer.ExplodedImporter;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 
 import com.lordofthejars.bank.account.boundary.TransferController;
-import com.lordofthejars.bank.account.control.AccountRepository;
 import com.lordofthejars.bank.account.control.AccountService;
+import com.lordofthejars.bank.account.control.JpaAccountRepository;
 import com.lordofthejars.bank.account.entity.Account;
 import com.lordofthejars.bank.customer.boundary.LogInController;
-import com.lordofthejars.bank.customer.control.CustomerRepository;
+import com.lordofthejars.bank.customer.control.JpaCustomerRepository;
 import com.lordofthejars.bank.customer.entity.Customer;
 import com.lordofthejars.bank.util.Resources;
 
@@ -26,11 +26,11 @@ public class Deployments {
 		return ShrinkWrap
 				.create(WebArchive.class, "login.war")
 				.addClass(Resources.class)
-				.addClasses(Account.class, AccountService.class,
+				.addClasses(Account.class,
 						AccountService.class, TransferController.class,
-						AccountRepository.class, AccountRepository.class)
+						JpaAccountRepository.class)
 				.addClasses(Customer.class, LogInController.class,
-						CustomerRepository.class, CustomerRepository.class)
+						JpaCustomerRepository.class)
 				.merge(ShrinkWrap.create(GenericArchive.class)
 						.as(ExplodedImporter.class)
 						.importDirectory(WEBAPP_SRC + "/resources/css")

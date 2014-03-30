@@ -6,7 +6,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 
-import com.lordofthejars.bank.customer.control.CustomerRepository;
+import com.lordofthejars.bank.customer.control.JpaCustomerRepository;
 import com.lordofthejars.bank.customer.entity.Customer;
 
 
@@ -29,7 +29,7 @@ public class LogInController {
 	private Customer currentCustomer = new Customer();
 
 	@EJB
-	private CustomerRepository customerRepository;
+	private JpaCustomerRepository jpaCustomerRepository;
 	
 	public void setUsername(String username) {
 		this.username = username;
@@ -49,7 +49,7 @@ public class LogInController {
 	
 	public String startSession() {
 		
-		currentCustomer = customerRepository.getCustomerByNameAndPassword(username, password);
+		currentCustomer = jpaCustomerRepository.getCustomerByNameAndPassword(username, password);
 		
 		if(currentCustomer != null) {
 			return "success";			

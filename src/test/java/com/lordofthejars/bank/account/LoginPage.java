@@ -1,4 +1,4 @@
-package com.lordofthejars.bank.account.web;
+package com.lordofthejars.bank.account;
 
 import static org.jboss.arquillian.graphene.Graphene.guardHttp;
 

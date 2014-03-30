@@ -1,0 +1,8 @@
+<resources>
+	<Resource id="bankDS" type="DataSource">
+		JdbcDriver org.apache.derby.jdbc.EmbeddedDataSource
+		JdbcUrl jdbc:derby:memory:bank;create=true
+		UserName app
+		Password app
+	</Resource>
+</resources>

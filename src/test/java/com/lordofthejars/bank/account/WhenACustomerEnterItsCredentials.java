@@ -1,4 +1,4 @@
-package com.lordofthejars.bank.account.web;
+package com.lordofthejars.bank.account;
 
 import java.net.URL;
 

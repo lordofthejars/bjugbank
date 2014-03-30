@@ -1,4 +1,4 @@
-package com.lordofthejars.bank.account.web;
+package com.lordofthejars.bank.account;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

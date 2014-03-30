@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+  <persistence-unit name="bank" transaction-type="JTA">
+    <class>com.lordofthejars.bank.account.entity.Account</class>
+    <class>com.lordofthejars.bank.customer.entity.Customer</class>
+    <jta-data-source>bankDS</jta-data-source>
+    <properties>
+      <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
+    </properties>
+  </persistence-unit>
+</persistence>
