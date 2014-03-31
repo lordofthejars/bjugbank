@@ -4,7 +4,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 import javax.ejb.EJB;
-import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -14,8 +13,8 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.lordofthejars.bank.account.control.JpaAccountRepository;
 import com.lordofthejars.bank.account.control.AccountService;
+import com.lordofthejars.bank.account.control.JpaAccountRepository;
 import com.lordofthejars.bank.account.entity.Account;
 import com.lordofthejars.bank.customer.control.JpaCustomerRepository;
 import com.lordofthejars.bank.customer.entity.Customer;
@@ -55,8 +54,8 @@ public class WhenACustomerTransferMoney {
 		Account fromAccount = accountRepository.getForAccountNumber("AA00");
 		Account toAccount = accountRepository.getForAccountNumber("BB00");
 		
-		assertThat(fromAccount.getBalance(), is(750));
-		assertThat(toAccount.getBalance(), is(750));
+		assertThat(fromAccount.getBalance(), is(50));
+		assertThat(toAccount.getBalance(), is(250));
 		
 	}
 	

@@ -6,7 +6,6 @@ import java.util.Collection;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.validation.ValidationException;
-import javax.ws.rs.QueryParam;
 
 import com.lordofthejars.bank.util.Generics;
 import com.lordofthejars.bank.util.Parameter;
