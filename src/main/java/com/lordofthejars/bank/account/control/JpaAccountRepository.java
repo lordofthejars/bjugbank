@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.lordofthejars.bank.account.entity.Account;
+import com.lordofthejars.bank.util.BankEntityManager;
 import com.lordofthejars.bank.util.persistence.NamedQuery;
 import com.lordofthejars.bank.util.persistence.Persist;
 import com.lordofthejars.bank.util.persistence.PersistenceHandler;
@@ -23,7 +24,8 @@ public abstract class JpaAccountRepository implements Serializable, InvocationHa
     private static final long serialVersionUID = -20398768083031833L;
     
     @Inject
-    private EntityManager em;
+    @BankEntityManager
+    EntityManager em;
 	
     @Persist
 	public abstract void createAccount(Account account);
