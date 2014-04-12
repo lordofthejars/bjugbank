@@ -16,7 +16,9 @@
         <arquillian.graphene.version>2.0.2.Final</arquillian.graphene.version>
         <arquillian.persistence.version>1.0.0.Alpha6</arquillian.persistence.version>
         <shrinkwrap.version>1.2.2</shrinkwrap.version>
-
+        <tomee.version>1.6.0</tomee.version>
+        <jsonp.version>1.0.4</jsonp.version>
+        
         <browser>htmlUnit</browser>
         <remoteReusable>false</remoteReusable>
         <testContainer>tomee</testContainer>
@@ -69,6 +71,12 @@
             <artifactId>myfaces-impl</artifactId>
             <version>${myfaces.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>${jsonp.version}</version>
         </dependency>
 
         <dependency>
@@ -188,7 +196,23 @@
                 <dependency>
                     <groupId>org.apache.openejb</groupId>
                     <artifactId>arquillian-tomee-embedded</artifactId>
-                    <version>1.6.0</version>
+                    <version>${tomee.version}</version>
+                    <scope>test</scope>
+                </dependency>
+
+                <!-- To test jax-rs applications with embed TomEE you need 
+                    to both of these dependencies -->
+
+                <dependency>
+                    <groupId>org.apache.openejb</groupId>
+                    <artifactId>openejb-cxf-rs</artifactId>
+                    <version>4.6.0</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.openejb</groupId>
+                    <artifactId>tomee-jaxrs</artifactId>
+                    <version>${tomee.version}</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
