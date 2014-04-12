@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 
 import com.lordofthejars.bank.account.entity.Account;
 
-@Entity
+@Entity(name="customer")
 @NamedQueries({ 
                 @NamedQuery(name = Customer.FIND_BY_NAME_PASSWORD, query = "SELECT c FROM Customer c WHERE c.name = :name AND c.password = :password")
               })

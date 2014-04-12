@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 
 import com.lordofthejars.bank.customer.entity.Customer;
 
-@Entity
+@Entity(name="account")
 @NamedQueries({ 
                 @NamedQuery(name = Account.FIND_BY_NUMBER, query = "SELECT a FROM Account a WHERE a.accountNumber = :accountNumber") 
               })

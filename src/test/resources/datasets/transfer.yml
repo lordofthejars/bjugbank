@@ -1,0 +1,19 @@
+customer:
+	- id: 1
+	  name: aa
+	  password: bb
+	  age: 20
+
+account:
+	- id: 2
+	  accountNumber: AA00
+	  balance: 100
+	  product_fk: 1
+	- id: 3
+	  accountNumber: BB00
+	  balance: 200
+	  product_fk: 1
+	- id: 4
+	  accountNumber: CC00
+	  balance: 300
+	  product_fk: 1

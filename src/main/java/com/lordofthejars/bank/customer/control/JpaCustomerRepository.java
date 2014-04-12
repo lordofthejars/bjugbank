@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.lordofthejars.bank.customer.entity.Customer;
-import com.lordofthejars.bank.util.MyEnum;
+import com.lordofthejars.bank.util.BankEntityManager;
 import com.lordofthejars.bank.util.persistence.NamedQuery;
 import com.lordofthejars.bank.util.persistence.Persist;
 import com.lordofthejars.bank.util.persistence.PersistenceHandler;
@@ -24,7 +24,7 @@ public abstract class JpaCustomerRepository implements Serializable, InvocationH
     private static final long serialVersionUID = -5158660449533256673L;
     
     @Inject
-    @MyEnum
+    @BankEntityManager
     EntityManager em;
 
     @Persist
