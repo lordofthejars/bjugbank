@@ -1,10 +1,10 @@
-customer:
+Customer:
 	- id: 1
 	  name: aa
 	  password: bb
 	  age: 20
 
-account:
+Account:
 	- id: 2
 	  accountNumber: AA00
 	  balance: 100
