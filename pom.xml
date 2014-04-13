@@ -18,7 +18,7 @@
         <shrinkwrap.version>1.2.2</shrinkwrap.version>
         <tomee.version>1.6.0</tomee.version>
         <jsonp.version>1.0.4</jsonp.version>
-        
+
         <browser>htmlUnit</browser>
         <remoteReusable>false</remoteReusable>
         <testContainer>tomee</testContainer>
@@ -29,17 +29,6 @@
     </properties>
 
     <build>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/arquillian.xml</include>
-                    <include>**/arquillian.launch</include>
-                </includes>
-            </testResource>
-        </testResources>
-
         <plugins>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -99,6 +88,12 @@
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jboss.arquillian.protocol</groupId>
+            <artifactId>arquillian-protocol-servlet</artifactId>
             <scope>test</scope>
         </dependency>
 

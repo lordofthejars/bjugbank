@@ -8,7 +8,6 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.importer.ExplodedImporter;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 
 import com.lordofthejars.bank.account.boundary.TransferService;
 import com.lordofthejars.bank.account.control.AccountService;
@@ -32,16 +31,6 @@ public class Deployments {
                 .addClass(CatalogService.class)
                 .addClass(GiftCatalogService.class)
                 .addClass(Gift.class)
-                .addAsLibraries(Maven
-                        .resolver()
-                        .loadPomFromFile("pom.xml")
-                        .resolve("org.apache.openejb:openejb-cxf-rs")
-                        .withTransitivity().asFile())
-                .addAsLibraries(Maven
-                        .resolver()
-                        .loadPomFromFile("pom.xml")
-                        .resolve("org.apache.openejb:tomee-jaxrs")
-                        .withTransitivity().asFile())
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
         return javaArchive;
 	    
