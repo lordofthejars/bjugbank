@@ -17,8 +17,10 @@ import com.lordofthejars.bank.customer.boundary.LogInService;
 import com.lordofthejars.bank.customer.control.JpaCustomerRepository;
 import com.lordofthejars.bank.customer.entity.Customer;
 import com.lordofthejars.bank.points.boundary.CatalogService;
+import com.lordofthejars.bank.points.boundary.CatalogServiceImpl;
 import com.lordofthejars.bank.points.control.GiftCatalogService;
 import com.lordofthejars.bank.points.model.Gift;
+import com.lordofthejars.bank.rs.ApplicationConfig;
 import com.lordofthejars.bank.util.Resources;
 
 public class Deployments {
@@ -29,6 +31,8 @@ public class Deployments {
 	    
 	    WebArchive javaArchive = ShrinkWrap.create(WebArchive.class, "giftcatalog.war")
                 .addClass(CatalogService.class)
+                .addClass(CatalogServiceImpl.class)
+                .addClass(ApplicationConfig.class)
                 .addClass(GiftCatalogService.class)
                 .addClass(Gift.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
