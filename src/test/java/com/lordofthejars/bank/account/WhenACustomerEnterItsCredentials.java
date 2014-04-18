@@ -3,7 +3,6 @@ package com.lordofthejars.bank.account;
 import java.net.URL;
 
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.InitialPage;
 import org.jboss.arquillian.graphene.page.Page;
@@ -17,12 +16,15 @@ import org.openqa.selenium.WebDriver;
 import com.lordofthejars.bank.Deployments;
 
 @RunWith(Arquillian.class)
-@RunAsClient
 public class WhenACustomerEnterItsCredentials {
 
 	@Deployment(testable = false)
 	public static WebArchive createDeployment() {
-		return Deployments.createLogin();
+		WebArchive webArchive = Deployments.createLogin();
+		
+		System.out.println(webArchive.toString(true));
+		
+		return webArchive;
 	}
 
 	@ArquillianResource
