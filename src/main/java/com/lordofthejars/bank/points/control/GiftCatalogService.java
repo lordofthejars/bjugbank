@@ -10,12 +10,19 @@ import com.lordofthejars.bank.points.model.Gift;
 @Stateless
 public class GiftCatalogService {
 
-    public List<Gift> giftCatalog() {
+    List<Gift> catalog = new ArrayList(){{
+        add(new Gift("podometer", "digital screen, clock, belt", 2000));
+        add(new Gift("usb charger", "two slots, LED, car", 500));
+    }};
+    
+    public Gift gift(String name) {
         
-        List<Gift> catalog = new ArrayList<>();
-        catalog.add(new Gift("podometer", "digital screen, clock, belt", 2000));
-        catalog.add(new Gift("usb charger", "two slots, LED, car", 500));
+        for (Gift gift : catalog) {
+            if(gift.getName().equals(name)) {
+                return gift;
+            }
+        }
         
-        return catalog;
+        return null;
     }
 }

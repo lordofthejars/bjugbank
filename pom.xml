@@ -19,7 +19,7 @@
         <resteasy.version>3.0.0.Final</resteasy.version>
         <shrinkwrap.version>1.2.2</shrinkwrap.version>
         <tomee.version>1.6.0</tomee.version>
-        <jsonp.version>1.0.4</jsonp.version>
+        <restassured.version>2.3.1</restassured.version>
 
         <browser>htmlUnit</browser>
         <remoteReusable>false</remoteReusable>
@@ -45,6 +45,12 @@
     <dependencies>
 
         <dependency>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${restassured.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
@@ -62,12 +68,6 @@
             <artifactId>myfaces-impl</artifactId>
             <version>${myfaces.version}</version>
             <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.json</artifactId>
-            <version>${jsonp.version}</version>
         </dependency>
 
         <dependency>
@@ -123,28 +123,6 @@
             <groupId>org.jboss.arquillian.extension</groupId>
             <artifactId>arquillian-persistence-impl</artifactId>
             <version>${arquillian.persistence.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Arquillian Rest -->
-
-        <dependency>
-            <groupId>org.jboss.arquillian.extension</groupId>
-            <artifactId>arquillian-rest-client-api</artifactId>
-            <version>${arquillian.rest.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jboss.arquillian.extension</groupId>
-            <artifactId>arquillian-rest-client-impl-3x</artifactId>
-            <version>${arquillian.rest.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jackson-provider</artifactId>
-            <version>${resteasy.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -258,13 +236,6 @@
                     <scope>test</scope>
                 </dependency>
             </dependencies>
-        </profile>
-
-        <profile>
-            <id>browser-chrome</id>
-            <properties>
-                <browser>chrome</browser>
-            </properties>
         </profile>
 
         <profile>
