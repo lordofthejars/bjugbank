@@ -33,16 +33,15 @@
     <build>
         <testResources>
             <testResource>
-                <filtering>true</filtering>
-                <directory>src/main/resources</directory>
-            </testResource>
-            
-            <testResource>
-                <filtering>true</filtering>
                 <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+<!--                 <includes> -->
+<!--                     <include>**/arquillian.xml</include> -->
+<!--                     <include>**/arquillian.launch</include> -->
+<!--                 </includes> -->
             </testResource>
         </testResources>
-            <plugins>
+        <plugins>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.12</version>

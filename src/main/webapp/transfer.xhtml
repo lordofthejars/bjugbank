@@ -64,21 +64,21 @@
 					<div class="row">
 						<div class="col-md-3">
 							<h:selectOneMenu id="from" styleClass="form-control input-sm"
-								value="#{transferController.fromAccount}">
+								value="#{transferService.fromAccount}">
 								<f:selectItems value="#{currentCustomer.accounts}" />
 							</h:selectOneMenu>
 						</div>
 						<div class="col-md-3">
 							<h:inputText id="to" styleClass="form-control input-sm"
-								value="#{transferController.toAccount}" />
+								value="#{transferService.toAccount}" />
 						</div>
 						<div class="col-md-3">
 							<h:inputText id="amount" styleClass="form-control input-sm"
-								value="#{transferController.amount}" />
+								value="#{transferService.amount}" />
 						</div>
 						<div class="col-md-3">
 							<h:commandButton styleClass="btn btn-primary btn-sm btn-block"
-								action="#{transferController.transfer}" value="Transfer" />
+								action="#{transferService.transfer}" value="Transfer" />
 						</div>
 						<h:messages styleClass="alert alert-danger" />
 					</div>

@@ -28,15 +28,15 @@
 
 			<h:outputLabel for="username">Enter username:</h:outputLabel>
 			<h:inputText id="username" styleClass="form-control"
-				value="#{logInController.username}" />
+				value="#{logInService.username}" />
 
 			<h:outputLabel for="password">Password:</h:outputLabel>
 			<h:inputSecret id="password" styleClass="form-control"
-				value="#{logInController.password}" />
+				value="#{logInService.password}" />
 
 			<h:commandButton id="submit"
 				styleClass="btn btn-lg btn-primary btn-block"
-				action="#{logInController.startSession}" value="Sign In" />
+				action="#{logInService.startSession}" value="Sign In" />
 		</h:form>
 	</ui:define>
 </ui:composition>

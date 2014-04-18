@@ -34,7 +34,7 @@ import com.lordofthejars.bank.customer.entity.Customer;
             url = "jdbc:hsqldb:mem:bank"
         )
     })
-public class DBPopulator {
+public class DbPopulator {
 
     @EJB
     JpaCustomerRepository customerRepository;

@@ -21,9 +21,6 @@ public class WhenACustomerEnterItsCredentials {
 	@Deployment(testable = false)
 	public static WebArchive createDeployment() {
 		WebArchive webArchive = Deployments.createLogin();
-		
-		System.out.println(webArchive.toString(true));
-		
 		return webArchive;
 	}
 

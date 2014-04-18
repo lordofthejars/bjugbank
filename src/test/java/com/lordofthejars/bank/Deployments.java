@@ -12,6 +12,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.descriptor.api.Descriptors;
 import org.jboss.shrinkwrap.descriptor.api.persistence20.PersistenceDescriptor;
 
+import com.lordofthejars.bank.account.DbPopulator;
 import com.lordofthejars.bank.account.boundary.TransferService;
 import com.lordofthejars.bank.account.control.AccountService;
 import com.lordofthejars.bank.account.control.JpaAccountRepository;
@@ -49,7 +50,7 @@ public class Deployments {
 				.create(WebArchive.class, "login.war")
 				.addAsResource(new StringAsset(persistenceDescriptor().exportAsString()), "META-INF/persistence.xml")
 				.addClass(Resources.class)
-				.addClass(DbDefinition.class)
+				.addClass(DbPopulator.class)
 				.addPackage(BankEntityManager.class.getPackage())
                 .addPackage(PersistenceHandler.class.getPackage())
 				.addClasses(Account.class,

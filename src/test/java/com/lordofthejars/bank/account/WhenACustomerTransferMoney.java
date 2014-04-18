@@ -34,7 +34,7 @@ public class WhenACustomerTransferMoney {
 				.addClass(AccountService.class)
 				.addClass(JpaAccountRepository.class)
 				.addClass(JpaCustomerRepository.class)
-				.addClass(DBPopulator.class)
+				.addClass(DbPopulator.class)
 				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
 				.addAsManifestResource("META-INF/persistence.xml", "persistence.xml");
 		return javaArchive;
