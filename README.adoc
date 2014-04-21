@@ -1,0 +1,36 @@
+= Resistence is Futile, Mocks Will Be Assimilated [The Workshop]
+
+== Workshop
+
+[horizontal]
+Date:: Friday, April 25, 2014
+Time:: 19:00 PM (2h 00m)
+Where:: Espai Jove La Fontana Carrer Gran de Gracia, 190, 08012
+Category:: Tools & Techniques
+
+== Abstract
+
+Everybody is mocking in unit test. To test what? Your code will be run within a Java EE container. Let's start writing fast real tests.
+
+Are you confident enough to push your application to production without fear? Will it run correctly with all components? Keep the fail whale at bay? Confidence comes from writing real tests.
+
+In this workshop we are going to see how some tools like Arquillian, Byteman, NoSQLUnit or Moco and other programs, may help us writing real tests in situations where you typically would use mocks.
+
+Come to this workshop and learn how to write faster and more effectively tests.
+
+== Tutorial requirements and instructions for attendees
+
+Knowledge of Java EE is essential.
+Some knowledge of git, maven and eclipse is useful, though a novice should be able to pick up the necessary training ``on the job''.
+
+* Laptop
+* Eclipse
+* EGit (Eclipse plugin)
+* M2E (Maven Eclipse plugin)
+* Maven Profiles Manager (Eclipse plugin) http://marketplace.eclipse.org/content/maven-profiles-management#.U041U_mSwZ4
+* Get master branch of repo https://github.com/lordofthejars/bjugbank 
+
+
+
+
+
