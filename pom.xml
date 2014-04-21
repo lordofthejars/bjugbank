@@ -35,10 +35,6 @@
             <testResource>
                 <directory>src/test/resources</directory>
                 <filtering>true</filtering>
-<!--                 <includes> -->
-<!--                     <include>**/arquillian.xml</include> -->
-<!--                     <include>**/arquillian.launch</include> -->
-<!--                 </includes> -->
             </testResource>
         </testResources>
         <plugins>
