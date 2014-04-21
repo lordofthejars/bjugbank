@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThat;
 import javax.ejb.EJB;
 
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.container.test.api.OverProtocol;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.persistence.UsingDataSet;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -26,9 +27,10 @@ import com.lordofthejars.bank.util.BankEntityManager;
 import com.lordofthejars.bank.util.persistence.PersistenceHandler;
 
 @RunWith(Arquillian.class)
-public class WhenACustomerTransferMoney {
+public class WhenACustomerTransferMoneyTest {
 
 	@Deployment
+	@OverProtocol("Servlet 3.0")
 	public static JavaArchive createDeployment() {
 		JavaArchive javaArchive = ShrinkWrap.create(JavaArchive.class)
 		        .addPackage(BankEntityManager.class.getPackage())
