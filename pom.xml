@@ -94,12 +94,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.jboss.arquillian.protocol</groupId>
-            <artifactId>arquillian-protocol-servlet</artifactId>
-            <scope>test</scope>
-        </dependency>
-
         <!-- Arquillian Drone -->
 
         <dependency>
@@ -115,15 +109,6 @@
             <groupId>org.jboss.arquillian.graphene</groupId>
             <artifactId>graphene-webdriver</artifactId>
             <type>pom</type>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Arquillian Persitence -->
-
-        <dependency>
-            <groupId>org.jboss.arquillian.extension</groupId>
-            <artifactId>arquillian-persistence-impl</artifactId>
-            <version>${arquillian.persistence.version}</version>
             <scope>test</scope>
         </dependency>
 
