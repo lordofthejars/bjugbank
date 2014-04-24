@@ -17,7 +17,6 @@ import com.lordofthejars.bank.account.boundary.TransferService;
 import com.lordofthejars.bank.account.control.AccountService;
 import com.lordofthejars.bank.account.control.JpaAccountRepository;
 import com.lordofthejars.bank.account.entity.Account;
-import com.lordofthejars.bank.account.persistence.DbDefinition;
 import com.lordofthejars.bank.customer.boundary.LogInService;
 import com.lordofthejars.bank.customer.control.JpaCustomerRepository;
 import com.lordofthejars.bank.customer.entity.Customer;
