@@ -28,7 +28,7 @@ public abstract class JpaAccountRepository implements Serializable, InvocationHa
     EntityManager em;
 	
     @Persist
-	public abstract void createAccount(Account account);
+	public abstract Account createAccount(Account account);
 	
     @NamedQuery(Account.FIND_BY_NUMBER)
 	public abstract Account getForAccountNumber(@QueryParam("accountNumber") String accountNumber);
