@@ -1,13 +1,16 @@
 package com.lordofthejars.bank.account.persistence;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
-import javax.ejb.EJB;
-
+import com.lordofthejars.bank.account.control.AccountService;
+import com.lordofthejars.bank.account.control.JpaAccountRepository;
+import com.lordofthejars.bank.account.entity.Account;
+import com.lordofthejars.bank.customer.control.JpaCustomerRepository;
+import com.lordofthejars.bank.customer.entity.Customer;
+import com.lordofthejars.bank.util.BankEntityManager;
+import com.lordofthejars.bank.util.persistence.PersistenceHandler;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.OverProtocol;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.persistence.CreateSchema;
 import org.jboss.arquillian.persistence.UsingDataSet;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -18,15 +21,13 @@ import org.jboss.shrinkwrap.descriptor.api.persistence20.PersistenceDescriptor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.lordofthejars.bank.account.control.AccountService;
-import com.lordofthejars.bank.account.control.JpaAccountRepository;
-import com.lordofthejars.bank.account.entity.Account;
-import com.lordofthejars.bank.customer.control.JpaCustomerRepository;
-import com.lordofthejars.bank.customer.entity.Customer;
-import com.lordofthejars.bank.util.BankEntityManager;
-import com.lordofthejars.bank.util.persistence.PersistenceHandler;
+import javax.ejb.EJB;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 @RunWith(Arquillian.class)
+@CreateSchema("schema/create.sql")
 public class WhenACustomerTransferMoneyTest {
 
 	@Deployment
@@ -66,12 +67,12 @@ public class WhenACustomerTransferMoneyTest {
 
 	@EJB
 	JpaAccountRepository accountRepository;
-	
+
 	@Test
 	@UsingDataSet("transfer.yml")
 	public void money_should_be_transferred_from_his_account_to_other_account() {
-		
-		accountService.transfer("AA00", "BB00", 50);
+      System.out.println(">>>>>>>> Executing APE test");
+      accountService.transfer("AA00", "BB00", 50);
 		
 		Account fromAccount = accountRepository.getForAccountNumber("AA00");
 		Account toAccount = accountRepository.getForAccountNumber("BB00");

@@ -1,24 +1,34 @@
 <arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://jboss.org/schema/arquillian"
-    xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+            xmlns="http://jboss.org/schema/arquillian"
+            xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
 
-    <container qualifier="tomee" default="true">
-        <configuration>
-            <property name="httpPort">-1</property>
-            <property name="stopPort">-1</property>
-        </configuration>
-    </container>
+  <container qualifier="tomee" default="true">
+    <configuration>
+      <property name="httpPort">-1</property>
+      <property name="stopPort">-1</property>
+    </configuration>
+  </container>
 
-    <extension qualifier="webdriver">
-        <property name="javascriptEnabled">true</property>
+  <extension qualifier="persistence-script">
+    <property name="scriptsToExecuteBeforeTest">SET DATABASE REFERENTIAL INTEGRITY FALSE</property>
+    <property name="sqlStatementDelimiter">NEW_LINE</property>
+  </extension>
 
-        <property name="browser">${browser}</property>
-        <property name="remoteReusable">${remoteReusable}</property>
-        <property name="remoteAddress">http://localhost:14444/wd/hub/</property>
-    </extension>
+  <extension qualifier="persistence-dbunit">
+    <property name="excludeTablesFromCleanup">openjpa_sequence_table</property>
+    <property name="datatypeFactory">org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</property>
+    <property name="excludeTablesFromComparisonWhenEmptyExpected">openjpa_sequence_table</property>
+  </extension>
 
-    <extension qualifier="graphene">
-        <property name="waitGuiInterval">30</property>
-    </extension>
+  <extension qualifier="webdriver">
+    <property name="javascriptEnabled">true</property>
+    <property name="browser">${browser}</property>
+    <property name="remoteReusable">${remoteReusable}</property>
+    <property name="remoteAddress">http://localhost:14444/wd/hub/</property>
+  </extension>
+
+  <extension qualifier="graphene">
+    <property name="waitGuiInterval">30</property>
+  </extension>
 
 </arquillian>
